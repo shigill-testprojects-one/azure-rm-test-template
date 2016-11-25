@@ -31,7 +31,20 @@
             "apiVersion": "2015-06-15",
             "dependsOn": [ ],
             "tags": {
-                "displayName": "testStorageAccount"
+                "displayName": "testStorageAccount1"
+            },
+            "properties": {
+                "accountType": "[parameters('testStorageAccountType')]"
+            }
+        },
+        {
+            "name": "[variables('testStorageAccountName')]",
+            "type": "Microsoft.Storage/storageAccounts",
+            "location": "[resourceGroup().location]",
+            "apiVersion": "2015-06-15",
+            "dependsOn": [ ],
+            "tags": {
+                "displayName": "testStorageAccount2"
             },
             "properties": {
                 "accountType": "[parameters('testStorageAccountType')]"
