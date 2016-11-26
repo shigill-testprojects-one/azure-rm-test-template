@@ -13,7 +13,7 @@
       "type": "string",
       "defaultValue": "[concat('testStorageAccount', uniqueString(resourceGroup().id))]",
       "allowedValues": [
-        "Standard_LRS",
+        "[concat('testStorageAccount', uniqueString(resourceGroup().id))]",
         "Standard_ZRS",
         "Standard_GRS",
         "Standard_RAGRS",
