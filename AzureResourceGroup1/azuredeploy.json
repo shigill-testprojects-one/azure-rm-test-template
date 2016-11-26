@@ -1,29 +1,29 @@
 {
     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
-  "parameters": {
-    "testParam1": {
-      "type": "string",
-      "defaultValue": "[concat('testStorageAccount', uniqueString(resourceGroup().id))]",
-      "metadata": {
-        "description": "This is test parameter"
-      }
+    "parameters": {
+        "testParam1": {
+            "type": "string",
+            "defaultValue": "test value",
+            "metadata": {
+                "description": "This is test parameter"
+            }
+        },
+        "testStorageAccountType": {
+            "type": "string",
+            "defaultValue": "Standard_LRS",
+            "allowedValues": [
+                "Standard_LRS",
+                "Standard_ZRS",
+                "Standard_GRS",
+                "Standard_RAGRS",
+                "Premium_LRS"
+            ]
+        }
     },
-    "testStorageAccountType": {
-      "type": "string",
-      "defaultValue": "Standard_LRS",
-      "allowedValues": [
-        "Standard_LRS",
-        "Standard_ZRS",
-        "Standard_GRS",
-        "Standard_RAGRS",
-        "Premium_LRS"
-      ]
-    }
-  },
     "variables": {
         "testStorageAccountName": "[concat('testStorageAccount', uniqueString(resourceGroup().id))]",
-         "testStorageAccountName2": "[concat('testStorageAccount2', uniqueString(resourceGroup().id))]"
+        "testStorageAccountName2": "[concat('testStorageAccount2', uniqueString(resourceGroup().id))]"
     },
     "resources": [
         {
@@ -31,7 +31,7 @@
             "type": "Microsoft.Storage/storageAccounts",
             "location": "[resourceGroup().location]",
             "apiVersion": "2015-06-15",
-            "dependsOn": [ ],
+            "dependsOn": [],
             "tags": {
                 "displayName": "testStorageAccount"
             },
@@ -44,7 +44,7 @@
             "type": "Microsoft.Storage/storageAccounts",
             "location": "[resourceGroup().location]",
             "apiVersion": "2015-06-15",
-            "dependsOn": [ ],
+            "dependsOn": [],
             "tags": {
                 "displayName": "testStorageAccount2"
             },
@@ -53,6 +53,5 @@
             }
         }
     ],
-  "outputs": {    
-  }
+    "outputs": {}
 }
