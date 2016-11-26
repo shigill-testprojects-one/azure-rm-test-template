@@ -11,9 +11,9 @@
     },
     "testStorageAccountType": {
       "type": "string",
-      "defaultValue": "[concat('testStorageAccount', uniqueString(resourceGroup().id))]",
+      "defaultValue": "Standard_LRS",
       "allowedValues": [
-        "[concat('testStorageAccount', uniqueString(resourceGroup().id))]",
+        "Standard_LRS",
         "Standard_ZRS",
         "Standard_GRS",
         "Standard_RAGRS",
@@ -22,7 +22,8 @@
     }
   },
     "variables": {
-        "testStorageAccountName": "[concat('testStorageAccount', uniqueString(resourceGroup().id))]"
+        "testStorageAccountName": "[concat('testStorageAccount', uniqueString(resourceGroup().id))]",
+         "testStorageAccountName2": "[concat('testStorageAccount2', uniqueString(resourceGroup().id))]"
     },
     "resources": [
         {
@@ -33,6 +34,19 @@
             "dependsOn": [ ],
             "tags": {
                 "displayName": "testStorageAccount"
+            },
+            "properties": {
+                "accountType": "[parameters('testStorageAccountType')]"
+            }
+        },
+        {
+            "name": "[variables('testStorageAccountName')]",
+            "type": "Microsoft.Storage/storageAccounts",
+            "location": "[resourceGroup().location]",
+            "apiVersion": "2015-06-15",
+            "dependsOn": [ ],
+            "tags": {
+                "displayName": "testStorageAccount2"
             },
             "properties": {
                 "accountType": "[parameters('testStorageAccountType')]"
