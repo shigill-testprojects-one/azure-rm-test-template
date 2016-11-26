@@ -4,7 +4,7 @@
   "parameters": {
     "testParam1": {
       "type": "string",
-      "defaultValue": "[concat('testStorageAccount', uniqueString(resourceGroup().id))]",
+      "defaultValue": "[variables('testStorageAccountName')]",
       "metadata": {
         "description": "This is test parameter"
       }
