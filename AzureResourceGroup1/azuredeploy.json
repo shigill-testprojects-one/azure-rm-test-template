@@ -40,7 +40,7 @@
             }
         },
         {
-            "name": "[variables('testStorageAccountName')]",
+            "name": "[variables('testStorageAccountName2')]",
             "type": "Microsoft.Storage/storageAccounts",
             "location": "[resourceGroup().location]",
             "apiVersion": "2015-06-15",
